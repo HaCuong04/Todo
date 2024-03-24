@@ -36,8 +36,23 @@ class Todos {
             }, error => {
                 reject(error);
             })
-    })
-}
+        })
+    }
+
+    removeTask = (id) => {
+        return new Promise(async(resolve, reject) => {
+            fetch(this.#backend_url + '/delete/' + id, {
+                method: 'delete'
+            })
+            .then((response) => response.json())
+            .then((json) => {
+                this.#removeFromArray(id)
+                resolve(json.id)
+            }, (error) => {
+                reject(error)
+            })
+        })
+    }
 
     #readJson = (tasksAsJson) => {
         tasksAsJson.forEach(node => {
@@ -45,10 +60,15 @@ class Todos {
             this.#tasks.push(task)
         });
     }
+
     #addToArray = (id,text) => {
         const task = new Task(id,text)
         this.#tasks.push(task)
         return task
+    }
+    #removeFromArray = (id) => {
+        const arrayWithoutRemoved = this.#tasks.filter(task => task.id !== id)
+        this.#tasks = arrayWithoutRemoved
     }
 }
 
