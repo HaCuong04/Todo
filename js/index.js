@@ -1,4 +1,4 @@
-const BACKEND_ROOT_URL = 'https://todo-backend-k25z.onrender.com/'
+const BACKEND_ROOT_URL = 'https://todo-client-chud.onrender.com'
 import { Todos } from "./class/Todos.js" 
 
 const todos = new Todos(BACKEND_ROOT_URL)
