@@ -41,8 +41,8 @@ app.post('/new', (req, res) => {
         } else {
             res.status(201).json({id : result.rows[0].id});
         }
-    });
-});
+    })
+})
 
 
 app.listen(port)
