@@ -1,4 +1,4 @@
-import { Task } from "./Task.js";
+import { Task } from "./Task.js"
 
 class Todos {
     #tasks = []
@@ -31,10 +31,10 @@ class Todos {
             })
             .then((response) => response.json())
             .then((json) => {
-                resolve(this.#addToArray(json.id, text));
+                resolve(this.#addToArray(json.id, text))
 
             }, error => {
-                reject(error);
+                reject(error)
             })
         })
     }
