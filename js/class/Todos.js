@@ -26,18 +26,17 @@ class Todos {
             const json = JSON.stringify({description: text})
             fetch(this.#backend_url + "/new", {
                 method: 'post',
-                headers: {'Content-Type':'application/json'},
+                headers: {'Content-Type': 'application/json'},
                 body: json
             })
             .then((response) => response.json())
             .then((json) => {
                 resolve(this.#addToArray(json.id, text))
-
             }, error => {
                 reject(error)
             })
-        })
-    }
+    })
+}
 
     removeTask = (id) => {
         return new Promise(async(resolve, reject) => {
