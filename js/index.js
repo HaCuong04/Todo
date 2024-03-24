@@ -78,18 +78,6 @@ const saveTask = async (task) => {
 
 getTasks();
 
-button.addEventListener('click', () => {
-    const task = input.value.trim();
-    if (task !== '') {
-        todos.addTask(task).then((task) => {
-            renderTask(task);
-            input.value = '';
-            input.focus();
-        })
-    }
-}
-);
-
 input.addEventListener('keypress', (e) => {
     if(e.key === 'Enter') {
         e.preventDefault();
